@@ -2,17 +2,16 @@
 #include <stdlib.h>
 #include <string.h>
 
-#define MAX 255
+#define MAX 20
 
 int main(void)
 {
   int menue;
   char name[MAX];
-  char note[MAX];
-  char file_mode;
+  char note[20]; 
   char file_extension[] = ".txt";
-  FILE* fptr;
-
+  FILE *fptr;
+  
   puts("Enter 1 to make a new note or 2 to view existing notes\n");
 
   scanf("%d",&menue);
@@ -29,9 +28,7 @@ int main(void)
     strcat(name,file_extension);
     
     //file handeling bit im cryng
-    file_mode = 'w';
-    
-    FILE* fopen(name,file_mode);
+    fptr = fopen("test.txt","w");
     
     if(fptr == NULL)
     {
@@ -44,8 +41,8 @@ int main(void)
     }
 
     puts("Make a note!");
-    gets(note);
-    
+    scanf("%s\n",note);
+     
     fprintf(fptr,"%s",note);
 
     fclose(fptr);
