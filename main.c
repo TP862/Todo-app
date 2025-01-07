@@ -19,10 +19,10 @@ int main(void)
   if(menue == 1)
   {
     system("clear");
-    printf("Create a new Note!");
+    printf("Create a new Note!\n");
     
     //Enter The name of the note
-    printf("Name of new note?");
+    printf("Name of new note?\n");
     scanf("%s",name);
 
     strcat(name,file_extension);
@@ -37,11 +37,22 @@ int main(void)
     }
     else 
     {
-      printf("Note Created Succesfully");
+      printf("Note Created Succesfully\n");
     }
 
     printf("Make a note!");
-    scanf("%s\n",note);
+    //clears the input buffer
+    
+
+    if(getchar() == '\n')
+    {
+      while ((getchar()) != '\n');
+      fgets(note,20, stdin);
+    }
+    else 
+    {
+     fgets(note,20, stdin);  
+    }
      
     fprintf(fptr,"%s",note);
 
