@@ -12,17 +12,17 @@ int main(void)
   char file_extension[] = ".txt";
   FILE *fptr;
   
-  puts("Enter 1 to make a new note or 2 to view existing notes\n");
+  printf("Enter 1 to make a new note or 2 to view existing notes\n");
 
   scanf("%d",&menue);
 
   if(menue == 1)
   {
     system("clear");
-    puts("Create a new Note!");
+    printf("Create a new Note!");
     
     //Enter The name of the note
-    puts("Name of new note?");
+    printf("Name of new note?");
     scanf("%s",name);
 
     strcat(name,file_extension);
@@ -32,15 +32,15 @@ int main(void)
     
     if(fptr == NULL)
     {
-      puts("File Failed to be created! :(");
+      printf("File Failed to be created! :(");
       exit(0);
     }
     else 
     {
-      puts("Note Created Succesfully");
+      printf("Note Created Succesfully");
     }
 
-    puts("Make a note!");
+    printf("Make a note!");
     scanf("%s\n",note);
      
     fprintf(fptr,"%s",note);
@@ -50,7 +50,7 @@ int main(void)
   else if( menue == 2)
   {
     system("clear");
-    puts("A list of your old notes");
+    printf("A list of your old notes");
   }
   return 0;
 }
