@@ -40,20 +40,12 @@ int main(void)
       printf("Note Created Succesfully\n");
     }
 
-    printf("Make a note!");
-    //clears the input buffer
+    printf("Make a note!\n");
     
+    //clears the input buffer
+    while ((getchar()) != '\n'); 
+    fgets(note,20, stdin);
 
-    if(getchar() == '\n')
-    {
-      while ((getchar()) != '\n');
-      fgets(note,20, stdin);
-    }
-    else 
-    {
-     fgets(note,20, stdin);  
-    }
-     
     fprintf(fptr,"%s",note);
 
     fclose(fptr);
